@@ -9,6 +9,7 @@
         <module name="Cartography" />
         <module name="RouteCalculation" />
         <module name="Energy" />
+        <module name="RobotEnergyIntegration" />
         <module name="Robot" />
       </profile>
     </annotationProcessing>
