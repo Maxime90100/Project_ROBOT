@@ -8,12 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Cartography" />
         <module name="RouteCalculation" />
+        <module name="Energy" />
         <module name="Robot" />
-        <module name="EnergyTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Energy" target="19" />
+      <module name="EnergyTest" target="19" />
       <module name="Movement_Energy" target="19" />
       <module name="PurseCodeSecretIntegrationProject" target="18" />
       <module name="PurseProject" target="18" />
