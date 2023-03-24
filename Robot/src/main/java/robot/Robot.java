@@ -1,14 +1,23 @@
 package robot;
 
+import energy.Energy;
 import org.mockito.Mockito;
 
 public class Robot {
-    private final Robot fakeRobot;
+    
+    Robot fakeRobot;
+    Energy energyModule;
 
-    public Robot(){
-        fakeRobot = Mockito.mock(Robot.class);
-        Mockito.when(deployer(1)).thenReturn(10);
+    public Robot(Energy energyModule) {
+        this.fakeRobot = Mockito.mock(Robot.class);
+        this.energyModule = energyModule;
     }
 
-    public int deployer(long time){ return fakeRobot.deployer(time);}
+    public void deployerPanneaux(long time) {
+        energyModule.deployer(time);
+    }
+
+    public float getChargeLevel(){
+        return energyModule.getChargeLevel();
+    }
 }

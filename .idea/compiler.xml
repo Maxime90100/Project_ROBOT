@@ -9,7 +9,6 @@
         <module name="Cartography" />
         <module name="RouteCalculation" />
         <module name="Energy" />
-        <module name="RobotEnergyIntegration" />
         <module name="Robot" />
       </profile>
     </annotationProcessing>
@@ -18,6 +17,7 @@
       <module name="Movement_Energy" target="19" />
       <module name="PurseCodeSecretIntegrationProject" target="18" />
       <module name="PurseProject" target="18" />
+      <module name="RobotEnergyIntegration" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>
