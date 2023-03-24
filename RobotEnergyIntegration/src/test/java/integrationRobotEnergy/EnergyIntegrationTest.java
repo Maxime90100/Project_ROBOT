@@ -12,7 +12,6 @@ public class EnergyIntegrationTest {
     }
     @Test
     public void testRobotDeployPanned(){
-        robot = new Robot();
         int energy = robot.deployer(1);
         Assertions.assertEquals(10,energy);
     }
