@@ -13,13 +13,22 @@ public class Energy {
             chargeLevel += 10*time;
             return null;
         }).when(fakeEnergyModule).deployer(Mockito.anyLong());
+
     }
 
     public void deployer(long time) {
         fakeEnergyModule.deployer(time);
     }
 
-    public float getChargeLevel() {
+    public void replier() {
+
+    }
+
+    public float getChargeLevel() throws EnergyException {
         return chargeLevel;
+    }
+
+    public void give(double neededEnergy) throws EnergyException {
+
     }
 }
