@@ -14,8 +14,8 @@ public class EnergyIntegrationTest {
     }
     @Test
     public void testRobotDeployPanned() {
-        /*robot.deployerPanneaux(1);
+        robot.deployerPanneaux(1);
         robot.getChargeLevel();
-        Assertions.assertEquals(10, robot.getChargeLevel());*/
+        Assertions.assertEquals(10, robot.getChargeLevel());
     }
 }
