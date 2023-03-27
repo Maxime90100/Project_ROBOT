@@ -7,7 +7,8 @@ import robot.Robot;
 public class EnergyIntegrationTest {
     private Robot robot;
 
-    /*@BeforeEach
+    /*
+    @BeforeEach
     public void setup() {
         Energy energyModule = new Energy();
         robot = new Robot(energyModule);
