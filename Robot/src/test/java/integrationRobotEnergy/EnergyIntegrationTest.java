@@ -6,10 +6,16 @@ import energy.Energy;
 import robot.Robot;
 
 public class EnergyIntegrationTest {
+
+    Robot robot;
+
+    @BeforeEach
+    public void init(){
+        Energy energyModule = new Energy();
+        robot = new Robot(energyModule);
+    }
     @Test
     public void testRobotDeployPanned() throws InterruptedException, EnergyException {
-        Energy energyModule = new Energy();
-        Robot robot = new Robot(energyModule);
         robot.deployerPanneaux(1);
         Assertions.assertEquals(10, robot.getChargeLevel());
     }
