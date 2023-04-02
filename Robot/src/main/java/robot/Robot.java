@@ -9,25 +9,27 @@ import java.util.List;
 public class Robot {
 
     Energy energyModule;
+    RoadBookCalculator roadBookCalculator;
 
-    public Robot(Energy energyModule) {
+    public Robot(Energy energyModule, RoadBookCalculator roadBookCalculator) {
         this.energyModule = energyModule;
+        this.roadBookCalculator = roadBookCalculator;
     }
 
     public void land(Coordinates landPosition, LandSensor sensor) throws LandSensorDefaillance {
 
     }
     public void moveForward() throws UnlandedRobotException, InaccessibleCoordinate, EspaceNonCartographieException, EnergyException {
-
+        energyModule.give(10);
     }
     public void moveBackward() throws UnlandedRobotException, InaccessibleCoordinate, EspaceNonCartographieException, EnergyException {
-
+        energyModule.give(10);
     }
     public void turnLeft() throws UnlandedRobotException, EnergyException {
-
+        energyModule.give(10);
     }
     public void turnRight() throws UnlandedRobotException, EnergyException {
-
+        energyModule.give(10);
     }
     public int getXposition() throws UnlandedRobotException {
         return 0;
