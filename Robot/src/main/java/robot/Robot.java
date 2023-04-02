@@ -2,7 +2,8 @@ package robot;
 
 import cartography.*;
 import energy.*;
-import routeCalculation.*;
+import routeCalculation.RoadBookCalculator;
+import routeCalculation.RoadBook;
 
 import java.util.List;
 
@@ -11,9 +12,12 @@ public class Robot {
     Energy energyModule;
     RoadBookCalculator roadBookCalculator;
 
-    public Robot(Energy energyModule, RoadBookCalculator roadBookCalculator) {
+    RoadBook roadBook;
+
+    public Robot(Energy energyModule, RoadBookCalculator roadBookCalculator, RoadBook roadBook) {
         this.energyModule = energyModule;
         this.roadBookCalculator = roadBookCalculator;
+        this.roadBook = roadBook;
     }
 
     public void land(Coordinates landPosition, LandSensor sensor) throws LandSensorDefaillance {
@@ -43,14 +47,14 @@ public class Robot {
     public List<CheckPoint> letsGo() throws UnlandedRobotException, UndefinedRoadbookException, InaccessibleCoordinate, EspaceNonCartographieException, EnergyException {
         return null;
     }
-    public void computeRoadTo(Coordinates destination, int mode) throws UnlandedRobotException, UndefinedRoadbookException, ImpraticableRoadException {
-
+    public void computeRoadTo(Coordinates destination, int mode) throws UnlandedRobotException, UndefinedRoadbookException {
+        roadBook.instructions.add(RoadBook.Instruction.FORWARD);
     }
     public void cartographier() throws LandSensorDefaillance, UnlandedRobotException {
 
     }
     public RoadBook getRoadBook() {
-        return null;
+        return roadBook;
     }
     public LandMap getMap() throws UnlandedRobotException {
         return null;

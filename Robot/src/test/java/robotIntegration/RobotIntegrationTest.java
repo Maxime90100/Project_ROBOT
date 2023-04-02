@@ -1,5 +1,6 @@
-package integrationRobotEnergy;
+package robotIntegration;
 
+import cartography.Coordinates;
 import cartography.EspaceNonCartographieException;
 import cartography.InaccessibleCoordinate;
 import cartography.InaccessibleCoordinateException;
@@ -7,22 +8,36 @@ import energy.EnergyException;
 import org.junit.jupiter.api.*;
 import energy.Energy;
 import robot.Robot;
+import robot.UndefinedRoadbookException;
 import robot.UnlandedRobotException;
+import routeCalculation.RoadBook;
 import routeCalculation.RoadBookCalculator;
+
+import javax.print.attribute.standard.Destination;
 
 public class RobotIntegrationTest {
 
     Robot robot;
     Energy energyModule;
     RoadBookCalculator roadBookCalculator;
+    RoadBook roadBook;
 
     @BeforeEach
     public void init() throws EnergyException, InterruptedException {
         energyModule = new Energy();
         roadBookCalculator = new RoadBookCalculator();
-        robot = new Robot(energyModule,roadBookCalculator);
+        roadBook = new RoadBook();
+        robot = new Robot(energyModule,roadBookCalculator,roadBook);
         robot.deployerPanneaux(1);
     }
+
+    @Test
+    public void testRoadBook() throws UndefinedRoadbookException, UnlandedRobotException {
+        Assertions.assertFalse(robot.getRoadBook().hasInstruction());
+        robot.computeRoadTo(new Coordinates(1,1),1);
+        Assertions.assertTrue(robot.getRoadBook().hasInstruction());
+    }
+
     @Test
     public void testRobotDeployPanned() throws EnergyException {
         Assertions.assertEquals(10, robot.getChargeLevel());
